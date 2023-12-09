@@ -1,0 +1,95 @@
+<div class="pokemon-details" *ngIf="pokedexDetail">
+  <h2>{{ pokedexDetail?.name }} Details</h2>
+  <div class="details-column">
+    <div>
+      <p>ID: {{ pokedexDetail?.id }}</p>
+      <p>Base Happiness: {{ pokedexDetail?.base_happiness }}</p>
+      <p>Capture Rate: {{ pokedexDetail?.capture_rate }}</p>
+    </div>
+    <div>
+      <h3>Color</h3>
+      <p>{{ pokedexDetail?.color?.name }}</p>
+    </div>
+    <div>
+      <h3>Egg Groups</h3>
+      <ul>
+        <li *ngFor="let group of pokedexDetail?.egg_groups">
+          {{ group.name }}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Evolution Chain</h3>
+      <p>{{ pokedexDetail?.evolution_chain?.url }}</p>
+    </div>
+    <div>
+      <h3>Generation</h3>
+      <ul>
+        <li>{{ pokedexDetail?.generation?.name }}</li>
+        <li>{{ pokedexDetail?.generation?.url }}</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Growth Rate</h3>
+      <ul>
+        <li>{{ pokedexDetail?.growth_rate?.name }}</li>
+        <li>{{ pokedexDetail?.growth_rate?.url }}</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Habitat</h3>
+      <ul>
+        <li>{{ pokedexDetail?.habitat?.name }}</li>
+        <li>{{ pokedexDetail?.habitat?.url }}</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Shape</h3>
+      <ul>
+        <li>{{ pokedexDetail?.shape?.name }}</li>
+        <li>{{ pokedexDetail?.shape?.url }}</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Pal Park Encounters:</h3>
+      <ul>
+        <li *ngFor="let encounter of pokedexDetail.pal_park_encounters">
+          Area Name: {{ encounter.area.name }} | Base Score:
+          {{ encounter.base_score }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Genera</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Language</th>
+        <th>Genus</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let genera of pokedexDetail.genera">
+        <td>{{ genera.language.name }}</td>
+        <td>{{ genera.genus }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Names</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Language</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let name of pokedexDetail.names">
+        <td>{{ name.language.name }}</td>
+        <td>{{ name.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
